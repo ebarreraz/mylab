@@ -1,0 +1,18 @@
+parameter_defaults:
+  ControllerSchedulerHints:
+    'capabilities:node': 'controller-%index%'
+  CephStorageSchedulerHints:
+   'capabilities:node': 'ceph-storage-%index%'
+  ComputeSchedulerHints:
+   'capabilities:node': 'compute-%index%'
+  HostnameMap:
+    overcloud-controller-0: controller-0
+    overcloud-controller-1: controller-1
+    overcloud-controller-2: controller-2
+    overcloud-ceph-storage-0: ceph-0
+    overcloud-ceph-storage-1: ceph-1
+    overcloud-ceph-storage-2: ceph-2
+    overcloud-compute-0: compute-0 
+    overcloud-compute-1: compute-1 
+    overcloud-compute-2: compute-2 
+    overcloud-compute-3: compute-3 
