@@ -1,6 +1,6 @@
-# Generated with the following on 2019-03-04T08:38:24.980532
+# Generated with the following on 2019-03-06T07:36:18.189222
 #
-#   openstack overcloud container image prepare --namespace=registry.access.redhat.com/rhosp13 --push-destination=192.168.24.10:8787 --prefix=openstack- --tag-from-label {version}-{release} --output-env-file=/home/stack/templates/overcloud_images.yaml --output-images-file /home/stack/local_registry_images.yaml -e /usr/share/openstack-tripleo-heat-templates/environments/ceph-ansible/ceph-ansible.yaml --set ceph_namespace=registry.access.redhat.com/rhceph --set ceph_image=rhceph-3-rhel7 --tag-from-label {version}-{release}
+#   openstack overcloud container image prepare --namespace=registry.access.redhat.com/rhosp13 --push-destination=192.168.24.10:8787 --prefix=openstack- --tag-from-label {version}-{release} --output-env-file=/home/stack/templates/overcloud_images.yaml --output-images-file /home/stack/local_registry_images.yaml -e /usr/share/openstack-tripleo-heat-templates/environments/ceph-ansible/ceph-ansible.yaml -e /usr/share/openstack-tripleo-heat-templates/environments/neutron-ml2-ovn-ha.yaml --set ceph_namespace=registry.access.redhat.com/rhceph --set ceph_image=rhceph-3-rhel7 --tag-from-label {version}-{release}
 #
 
 parameter_defaults:
@@ -49,11 +49,8 @@ parameter_defaults:
   DockerMysqlClientConfigImage: 192.168.24.10:8787/rhosp13/openstack-mariadb:13.0-67
   DockerMysqlConfigImage: 192.168.24.10:8787/rhosp13/openstack-mariadb:13.0-67
   DockerMysqlImage: 192.168.24.10:8787/rhosp13/openstack-mariadb:13.0-67
-  DockerNeutronApiImage: 192.168.24.10:8787/rhosp13/openstack-neutron-server:13.0-72
-  DockerNeutronConfigImage: 192.168.24.10:8787/rhosp13/openstack-neutron-server:13.0-72
-  DockerNeutronDHCPImage: 192.168.24.10:8787/rhosp13/openstack-neutron-dhcp-agent:13.0-74.1549896444
-  DockerNeutronL3AgentImage: 192.168.24.10:8787/rhosp13/openstack-neutron-l3-agent:13.0-72.1549896439
-  DockerNeutronMetadataImage: 192.168.24.10:8787/rhosp13/openstack-neutron-metadata-agent:13.0-75
+  DockerNeutronApiImage: 192.168.24.10:8787/rhosp13/openstack-neutron-server-ovn:13.0-65
+  DockerNeutronConfigImage: 192.168.24.10:8787/rhosp13/openstack-neutron-server-ovn:13.0-65
   DockerNovaApiImage: 192.168.24.10:8787/rhosp13/openstack-nova-api:13.0-73
   DockerNovaComputeImage: 192.168.24.10:8787/rhosp13/openstack-nova-compute:13.0-78.1548959796
   DockerNovaConductorImage: 192.168.24.10:8787/rhosp13/openstack-nova-conductor:13.0-71
@@ -66,7 +63,14 @@ parameter_defaults:
   DockerNovaPlacementImage: 192.168.24.10:8787/rhosp13/openstack-nova-placement-api:13.0-72
   DockerNovaSchedulerImage: 192.168.24.10:8787/rhosp13/openstack-nova-scheduler:13.0-73
   DockerNovaVncProxyImage: 192.168.24.10:8787/rhosp13/openstack-nova-novncproxy:13.0-74
-  DockerOpenvswitchImage: 192.168.24.10:8787/rhosp13/openstack-neutron-openvswitch-agent:13.0-73
+  DockerOvnControllerConfigImage: 192.168.24.10:8787/rhosp13/openstack-ovn-controller:13.0-67
+  DockerOvnControllerImage: 192.168.24.10:8787/rhosp13/openstack-ovn-controller:13.0-67
+  DockerOvnDbsConfigImage: 192.168.24.10:8787/rhosp13/openstack-ovn-northd:13.0-68
+  DockerOvnDbsImage: 192.168.24.10:8787/rhosp13/openstack-ovn-northd:13.0-68
+  DockerOvnMetadataImage: 192.168.24.10:8787/rhosp13/openstack-neutron-metadata-agent-ovn:13.0-70.1549896443
+  DockerOvnNbDbImage: 192.168.24.10:8787/rhosp13/openstack-ovn-nb-db-server:13.0-67
+  DockerOvnNorthdImage: 192.168.24.10:8787/rhosp13/openstack-ovn-northd:13.0-68
+  DockerOvnSbDbImage: 192.168.24.10:8787/rhosp13/openstack-ovn-sb-db-server:13.0-67
   DockerPankoApiImage: 192.168.24.10:8787/rhosp13/openstack-panko-api:13.0-66
   DockerPankoConfigImage: 192.168.24.10:8787/rhosp13/openstack-panko-api:13.0-66
   DockerRabbitmqConfigImage: 192.168.24.10:8787/rhosp13/openstack-rabbitmq:13.0-68

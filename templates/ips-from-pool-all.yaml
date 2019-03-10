@@ -1,0 +1,91 @@
+# Environment file demonstrating how to pre-assign IPs to all node types
+resource_registry:
+  OS::TripleO::Controller::Ports::ExternalPort: network/ports/external_from_pool.yaml
+  OS::TripleO::Controller::Ports::InternalApiPort: network/ports/internal_api_from_pool.yaml
+  OS::TripleO::Controller::Ports::StoragePort: network/ports/storage_from_pool.yaml
+  OS::TripleO::Controller::Ports::StorageMgmtPort: network/ports/storage_mgmt_from_pool.yaml
+  OS::TripleO::Controller::Ports::TenantPort: network/ports/tenant_from_pool.yaml
+  # Management network is optional and disabled by default
+  #OS::TripleO::Controller::Ports::ManagementPort: ../network/ports/management_from_pool.yaml
+
+  OS::TripleO::Compute::Ports::ExternalPort: network/ports/noop.yaml
+  OS::TripleO::Compute::Ports::InternalApiPort: network/ports/internal_api_from_pool.yaml
+  OS::TripleO::Compute::Ports::StoragePort: network/ports/storage_from_pool.yaml
+  OS::TripleO::Compute::Ports::StorageMgmtPort: network/ports/noop.yaml
+  OS::TripleO::Compute::Ports::TenantPort: network/ports/tenant_from_pool.yaml
+  #OS::TripleO::Compute::Ports::ManagementPort: ../network/ports/management_from_pool.yaml
+
+  OS::TripleO::CephStorage::Ports::ExternalPort: network/ports/external_from_pool.yaml
+  OS::TripleO::CephStorage::Ports::InternalApiPort: network/ports/internal_api_from_pool.yaml
+  OS::TripleO::CephStorage::Ports::StoragePort: network/ports/storage_from_pool.yaml
+  OS::TripleO::CephStorage::Ports::StorageMgmtPort: network/ports/storage_mgmt_from_pool.yaml
+  OS::TripleO::CephStorage::Ports::TenantPort: network/ports/tenant_from_pool.yaml
+  #OS::TripleO::CephStorage::Ports::ManagementPort: ../network/ports/management_from_pool.yaml
+
+  OS::TripleO::ObjectStorage::Ports::ExternalPort: network/ports/noop.yaml
+  OS::TripleO::ObjectStorage::Ports::InternalApiPort: network/ports/internal_api_from_pool.yaml
+  OS::TripleO::ObjectStorage::Ports::StoragePort: network/ports/storage_from_pool.yaml
+  OS::TripleO::ObjectStorage::Ports::StorageMgmtPort: network/ports/storage_mgmt_from_pool.yaml
+  OS::TripleO::ObjectStorage::Ports::TenantPort: network/ports/noop.yaml
+  #OS::TripleO::ObjectStorage::Ports::ManagementPort: ../network/ports/management_from_pool.yaml
+
+  OS::TripleO::BlockStorage::Ports::ExternalPort: network/ports/noop.yaml
+  OS::TripleO::BlockStorage::Ports::InternalApiPort: network/ports/internal_api_from_pool.yaml
+  OS::TripleO::BlockStorage::Ports::StoragePort: network/ports/storage_from_pool.yaml
+  OS::TripleO::BlockStorage::Ports::StorageMgmtPort: network/ports/storage_mgmt_from_pool.yaml
+  OS::TripleO::BlockStorage::Ports::TenantPort: network/ports/noop.yaml
+  #OS::TripleO::BlockStorage::Ports::ManagementPort: ../network/ports/management_from_pool.yaml
+
+parameter_defaults:
+  ControllerIPs:
+    external:
+    - 192.168.1.101
+    - 192.168.1.102
+    - 192.168.1.103
+    internal_api:
+    - 172.16.2.101
+    - 172.16.2.102
+    - 172.16.2.103
+    storage:
+    - 172.16.1.101
+    - 172.16.1.102
+    - 172.16.1.103
+    storage_mgmt:
+    - 172.16.3.101
+    - 172.16.3.102
+    - 172.16.3.103
+    tenant:
+    - 172.16.0.101
+    - 172.16.0.102
+    - 172.16.0.103
+  ComputeIPs:
+    external:
+    - 192.168.1.107
+    - 192.168.1.108
+    - 192.168.1.109
+    - 192.168.1.110
+    internal_api:
+    - 172.16.2.107
+    - 172.16.2.108
+    - 172.16.2.109
+    - 172.16.2.110
+    storage:
+    - 172.16.1.107
+    - 172.16.1.108
+    - 172.16.1.109
+    - 172.16.1.110
+    tenant:
+    - 172.16.0.107
+    - 172.16.0.108
+    - 172.16.0.109
+    - 172.16.0.110
+  CephStorageIPs:
+    storage:
+    - 172.16.1.104
+    - 172.16.1.105
+    - 172.16.1.106
+    storage_mgmt:
+    - 172.16.3.104
+    - 172.16.3.105
+    - 172.16.3.106
+

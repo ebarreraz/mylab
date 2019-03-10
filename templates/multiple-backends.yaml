@@ -1,0 +1,23 @@
+parameter_defaults:
+  # In storage environmnet we have this set to false, so this -e should be included after
+  CinderEnableIscsiBackend: true
+  cinder_user_enabled_backends: ['lvm1','lvm2']
+
+  #Based on https://wiki.openstack.org/wiki/Cinder-multi-backend  and https://docs.openstack.org/tripleo-docs/latest/install/advanced_deployment/cinder_custom_backend.html
+  ExtraConfig:
+    cinder::config::cinder_config:
+      lvm1/volume_group:
+           value: cinder
+      lvm1/volume_driver:
+           value: cinder.volume.drivers.lvm.LVMISCSIDriver
+      lvm1/volume_backend_name:
+           value: LVM1
+      lvm2/volume_group: 
+           value: cinder
+      lvm2/volume_driver:
+           value: cinder.volume.drivers.lvm.LVMISCSIDriver
+      lvm2/volume_backend_name:
+           value: LVM2
+
+
+
